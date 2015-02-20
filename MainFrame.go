@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"gopkg.in/qml.v1"
 	"os"
+    "./ScoreDice.go"
 )
 
 func main() {
@@ -20,6 +21,13 @@ func run() error {
 	if err != nil {
 		return err
 	}
+
+	game := NewScoreDice()
+	game.Roll()
+	game.SetDice()
+
+	context := engine.Context()
+	context.SetVar("game", game)
 
 	window := component.CreateWindow(nil)
 

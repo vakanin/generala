@@ -73,6 +73,9 @@ Rectangle {
             x: 8
             y: 72
             text: qsTr("Aces")
+            onClicked: {
+                textField1.text = game.aces()
+            }
         }
 
         Button {
@@ -80,6 +83,9 @@ Rectangle {
             x: 8
             y: 112
             text: qsTr("Twos")
+            onClicked: {
+                textField2.text = game.twos()
+            }
         }
 
         Button {
@@ -87,6 +93,9 @@ Rectangle {
             x: 8
             y: 153
             text: qsTr("Threes")
+            onClicked: {
+                textField3.text = game.threes()
+            }
         }
 
         Button {
@@ -94,6 +103,9 @@ Rectangle {
             x: 8
             y: 194
             text: "Fours"
+            onClicked: {
+                textField4.text = game.fours()
+            }
         }
 
         Button {
@@ -101,6 +113,9 @@ Rectangle {
             x: 8
             y: 232
             text: qsTr("Fives")
+            onClicked: {
+                textField5.text = game.fives()
+            }
         }
 
         Button {
@@ -108,6 +123,9 @@ Rectangle {
             x: 8
             y: 270
             text: qsTr("Sixes")
+            onClicked: {
+                textField6.text = game.sixes()
+            }
         }
 
         TextField {
@@ -116,6 +134,7 @@ Rectangle {
             y: 72
             width: 40
             height: 27
+            readOnly: true
             placeholderText: qsTr("-30")
         }
 
@@ -125,6 +144,7 @@ Rectangle {
             y: 112
             width: 40
             height: 27
+            readOnly: true
             placeholderText: "-30"
         }
 
@@ -134,6 +154,7 @@ Rectangle {
             y: 153
             width: 40
             height: 27
+            readOnly: true
             placeholderText: "-30"
         }
 
@@ -143,6 +164,7 @@ Rectangle {
             y: 194
             width: 40
             height: 27
+            readOnly: true
             placeholderText: "-30"
         }
 
@@ -152,6 +174,7 @@ Rectangle {
             y: 232
             width: 40
             height: 27
+            readOnly: true
             placeholderText: "-30"
         }
 
@@ -161,6 +184,7 @@ Rectangle {
             y: 270
             width: 40
             height: 27
+            readOnly: true
             placeholderText: qsTr("-30")
         }
 
@@ -171,6 +195,23 @@ Rectangle {
             width: 102
             height: 99
             text: qsTr("Roll !")
+            onClicked: {
+                if (!checkBox1.checked) {
+                    textField7.text = game.getDice1()
+                }
+                if (!checkBox2.checked) {
+                    textField8.text = game.getDice2()
+                }
+                if (!checkBox3.checked) {
+                    textField9.text = game.getDice3()
+                }
+                if (!checkBox4.checked) {
+                    textField10.text = game.getDice4()
+                }
+                if (!checkBox5.checked) {
+                    textField11.text = game.getDice5()
+                }
+            }
         }
 
         TextField {
@@ -179,7 +220,7 @@ Rectangle {
             y: 445
             width: 61
             height: 64
-            placeholderText: qsTr("Text Field")
+            placeholderText: qsTr("Dice 1")
         }
 
         TextField {
@@ -188,7 +229,8 @@ Rectangle {
             y: 445
             width: 61
             height: 64
-            placeholderText: qsTr("Text Field")
+            readOnly: true
+            placeholderText: qsTr("Dice 2")
         }
 
         TextField {
@@ -197,7 +239,8 @@ Rectangle {
             y: 445
             width: 61
             height: 64
-            placeholderText: qsTr("Text Field")
+            readOnly: true
+            placeholderText: qsTr("Dice 3")
         }
 
         TextField {
@@ -206,7 +249,8 @@ Rectangle {
             y: 445
             width: 61
             height: 64
-            placeholderText: qsTr("Text Field")
+            readOnly: true
+            placeholderText: qsTr("Dice 4")
         }
 
         TextField {
@@ -215,7 +259,8 @@ Rectangle {
             y: 445
             width: 61
             height: 64
-            placeholderText: qsTr("Text Field")
+            readOnly: true
+            placeholderText: qsTr("Dice 5")
         }
 
         CheckBox {
@@ -325,6 +370,7 @@ Rectangle {
             y: 74
             width: 40
             height: 27
+            readOnly: true
             placeholderText: qsTr("0")
         }
 
@@ -334,6 +380,7 @@ Rectangle {
             y: 112
             width: 40
             height: 27
+            readOnly: true
             placeholderText: qsTr("0")
         }
 
@@ -343,6 +390,7 @@ Rectangle {
             y: 153
             width: 40
             height: 27
+            readOnly: true
             placeholderText: qsTr("0")
         }
 
@@ -352,6 +400,7 @@ Rectangle {
             y: 194
             width: 40
             height: 27
+            readOnly: true
             placeholderText: qsTr("0")
         }
 
@@ -361,6 +410,7 @@ Rectangle {
             y: 232
             width: 40
             height: 27
+            readOnly: true
             placeholderText: qsTr("0")
         }
 
@@ -370,6 +420,7 @@ Rectangle {
             y: 270
             width: 40
             height: 27
+            readOnly: true
             placeholderText: qsTr("0")
         }
 
@@ -379,6 +430,7 @@ Rectangle {
             y: 308
             width: 40
             height: 27
+            readOnly: true
             placeholderText: qsTr("0")
         }
 
@@ -389,6 +441,6 @@ Rectangle {
             width: 144
             height: 40
             text: qsTr("New game")
-            onClicked: console.log("This doesn't do anything yet...")
+            onClicked: game.aces()
         }
 }
