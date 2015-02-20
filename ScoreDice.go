@@ -63,16 +63,8 @@ func (sd *ScoreDice) GetDice(number int) int {
 	return 0
 }
 
-// remove me !!!
-func (sd *ScoreDice) GetDiceHash() {
-	for _, v := range sd.mDiceHash {
-		fmt.Printf("%d, ", v)
-	}
-}
-
 //return the score for the aces box.
 func (sd *ScoreDice) Aces() int {
-	fmt.Println("Aces()")
 	return sd.mDiceHash[0]
 }
 

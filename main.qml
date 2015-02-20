@@ -220,6 +220,7 @@ Rectangle {
             y: 445
             width: 61
             height: 64
+            readOnly: true
             placeholderText: qsTr("Dice 1")
         }
 
@@ -314,6 +315,9 @@ Rectangle {
             y: 72
             width: 125
             text: qsTr("Three of a kind")
+            onClicked: {
+                textFieldThreeOfAKind.text = game.threeOfAKind()
+            }
         }
 
         Button {
@@ -322,6 +326,9 @@ Rectangle {
             y: 112
             width: 125
             text: qsTr("Four of a kind")
+            onClicked: {
+                textFieldFourOfAKind.text = game.fourOfAKind()
+            }
         }
 
         Button {
@@ -331,6 +338,9 @@ Rectangle {
             width: 125
             height: 27
             text: qsTr("Full house")
+            onClicked: {
+                textFieldFullHouse.text = game.fullHouse()
+            }
         }
 
         Button {
@@ -339,6 +349,9 @@ Rectangle {
             y: 194
             width: 125
             text: qsTr("Small sequence")
+            onClicked: {
+                textFieldSmallSequence.text = game.smallSequence()
+            }
         }
 
         Button {
@@ -346,6 +359,9 @@ Rectangle {
             x: 245
             y: 232
             text: qsTr("Large sequence")
+            onClicked: {
+                textFieldLargeSequence.text = game.largeSequence()
+            }
         }
 
         Button {
@@ -354,6 +370,9 @@ Rectangle {
             y: 270
             width: 125
             text: qsTr("Chance")
+            onClicked: {
+                textFieldChance.text = game.chance()
+            }
         }
 
         Button {
@@ -362,10 +381,13 @@ Rectangle {
             y: 308
             width: 125
             text: qsTr("GENERALA")
+            onClicked: {
+                textFieldGenerala.text = game.generala()
+            }
         }
 
         TextField {
-            id: textField12
+            id: textFieldThreeOfAKind
             x: 384
             y: 74
             width: 40
@@ -375,7 +397,7 @@ Rectangle {
         }
 
         TextField {
-            id: textField13
+            id: textFieldFourOfAKind
             x: 384
             y: 112
             width: 40
@@ -385,7 +407,7 @@ Rectangle {
         }
 
         TextField {
-            id: textField14
+            id: textFieldFullHouse
             x: 384
             y: 153
             width: 40
@@ -395,7 +417,7 @@ Rectangle {
         }
 
         TextField {
-            id: textField15
+            id: textFieldSmallSequence
             x: 384
             y: 194
             width: 40
@@ -405,7 +427,7 @@ Rectangle {
         }
 
         TextField {
-            id: textField16
+            id: textFieldLargeSequence
             x: 384
             y: 232
             width: 40
@@ -415,7 +437,7 @@ Rectangle {
         }
 
         TextField {
-            id: textField17
+            id: textFieldChance
             x: 384
             y: 270
             width: 40
@@ -425,7 +447,7 @@ Rectangle {
         }
 
         TextField {
-            id: textField18
+            id: textFieldGenerala
             x: 384
             y: 308
             width: 40
