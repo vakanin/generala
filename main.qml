@@ -75,7 +75,9 @@ Rectangle {
             text: qsTr("Aces")
             onClicked: {
                 textField1.text = game.aces()
+                button1.enabled = false
             }
+
         }
 
         Button {
@@ -85,6 +87,7 @@ Rectangle {
             text: qsTr("Twos")
             onClicked: {
                 textField2.text = game.twos()
+                button2.enabled = false
             }
         }
 
@@ -95,6 +98,7 @@ Rectangle {
             text: qsTr("Threes")
             onClicked: {
                 textField3.text = game.threes()
+                button3.enabled = false
             }
         }
 
@@ -105,6 +109,7 @@ Rectangle {
             text: "Fours"
             onClicked: {
                 textField4.text = game.fours()
+                button4.enabled = false
             }
         }
 
@@ -115,6 +120,7 @@ Rectangle {
             text: qsTr("Fives")
             onClicked: {
                 textField5.text = game.fives()
+                button5.enabled = false
             }
         }
 
@@ -125,6 +131,7 @@ Rectangle {
             text: qsTr("Sixes")
             onClicked: {
                 textField6.text = game.sixes()
+                button6.enabled = false
             }
         }
 
@@ -317,6 +324,7 @@ Rectangle {
             text: qsTr("Three of a kind")
             onClicked: {
                 textFieldThreeOfAKind.text = game.threeOfAKind()
+                button8.enabled = false
             }
         }
 
@@ -328,6 +336,7 @@ Rectangle {
             text: qsTr("Four of a kind")
             onClicked: {
                 textFieldFourOfAKind.text = game.fourOfAKind()
+                button10.enabled = false
             }
         }
 
@@ -340,6 +349,7 @@ Rectangle {
             text: qsTr("Full house")
             onClicked: {
                 textFieldFullHouse.text = game.fullHouse()
+                button11.enabled = false
             }
         }
 
@@ -351,6 +361,7 @@ Rectangle {
             text: qsTr("Small sequence")
             onClicked: {
                 textFieldSmallSequence.text = game.smallSequence()
+                button12.enabled = false
             }
         }
 
@@ -361,6 +372,7 @@ Rectangle {
             text: qsTr("Large sequence")
             onClicked: {
                 textFieldLargeSequence.text = game.largeSequence()
+                button13.enabled = false
             }
         }
 
@@ -372,6 +384,7 @@ Rectangle {
             text: qsTr("Chance")
             onClicked: {
                 textFieldChance.text = game.chance()
+                button14.enabled = false
             }
         }
 
@@ -383,6 +396,7 @@ Rectangle {
             text: qsTr("GENERALA")
             onClicked: {
                 textFieldGenerala.text = game.generala()
+                button15.enabled = false
             }
         }
 
@@ -463,6 +477,81 @@ Rectangle {
             width: 144
             height: 40
             text: qsTr("New game")
-            onClicked: game.aces()
+            onClicked: {
+                newGame()
+            }
+        }
+
+        Button {
+            id: button16
+            x: 8
+            y: 541
+            width: 144
+            height: 40
+            text: qsTr("Check")
+            onClicked: {
+                newGame()
+            }
+        }
+
+        TextField {
+            id: textFieldResult
+            x: 166
+            y: 541
+            width: 61
+            height: 40
+            readOnly: true
+            placeholderText: qsTr("0")
+        }
+
+        function newGame() {
+            textField1.text = "-30"
+            textField2.text = "-30"
+            textField3.text = "-30"
+            textField4.text = "-30"
+            textField5.text = "-30"
+            textField6.text = "-30"
+
+            // Dices
+            textField7.text = "Dice 1"
+            textField8.text = "Dice 2"
+            textField9.text = "Dice 3"
+            textField10.text = "Dice 4"
+            textField11.text = "Dice 5"
+
+            // others
+            textFieldThreeOfAKind.text = "0"
+            textFieldFourOfAKind.text = "0"
+            textFieldFullHouse.text = "0"
+            textFieldSmallSequence.text = "0"
+            textFieldLargeSequence.text = "0"
+            textFieldChance.text = "0"
+            textFieldGenerala.text = "0"
+            textFieldResult.text = "0"
+
+            // checkBoxs
+            checkBox1.checked = false
+            checkBox2.checked = false
+            checkBox3.checked = false
+            checkBox4.checked = false
+            checkBox5.checked = false
+
+            // buttons
+            button1.enabled = true
+            button2.enabled = true
+            button3.enabled = true
+            button4.enabled = true
+            button5.enabled = true
+            button6.enabled = true
+            button7.enabled = true
+            button8.enabled = true
+            button9.enabled = true
+            button10.enabled = true
+            button11.enabled = true
+            button12.enabled = true
+            button13.enabled = true
+            button14.enabled = true
+            button15.enabled = true
+            button16.enabled = true
         }
 }
