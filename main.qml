@@ -73,9 +73,15 @@ Rectangle {
             x: 8
             y: 72
             text: qsTr("Aces")
+            property bool rollEnable: true
             onClicked: {
                 textField1.text = game.aces()
+                button1.rollEnable = false
                 button1.enabled = false
+                uncheck()
+                button7.enabled = true
+                button7.rolls = 3
+                rollButtonsDisable()
             }
 
         }
@@ -85,9 +91,15 @@ Rectangle {
             x: 8
             y: 112
             text: qsTr("Twos")
+            property bool rollEnable: true
             onClicked: {
                 textField2.text = game.twos()
+                button2.rollEnable = false
                 button2.enabled = false
+                uncheck()
+                button7.enabled = true
+                button7.rolls = 3
+                rollButtonsDisable()
             }
         }
 
@@ -96,9 +108,15 @@ Rectangle {
             x: 8
             y: 153
             text: qsTr("Threes")
+            property bool rollEnable: true
             onClicked: {
                 textField3.text = game.threes()
+                button3.rollEnable = false
                 button3.enabled = false
+                //uncheck()
+                button7.enabled = true
+                button7.rolls = 3
+                rollButtonsDisable()
             }
         }
 
@@ -107,9 +125,15 @@ Rectangle {
             x: 8
             y: 194
             text: "Fours"
+            property bool rollEnable: true
             onClicked: {
                 textField4.text = game.fours()
+                button4.rollEnable = false
                 button4.enabled = false
+                uncheck()
+                button7.enabled = true
+                button7.rolls = 3
+                rollButtonsDisable()
             }
         }
 
@@ -118,9 +142,15 @@ Rectangle {
             x: 8
             y: 232
             text: qsTr("Fives")
+            property bool rollEnable: true
             onClicked: {
                 textField5.text = game.fives()
+                button5.rollEnable = false
                 button5.enabled = false
+                uncheck()
+                button7.enabled = true
+                button7.rolls = 3
+                rollButtonsDisable()
             }
         }
 
@@ -129,9 +159,15 @@ Rectangle {
             x: 8
             y: 270
             text: qsTr("Sixes")
+            property bool rollEnable: true
             onClicked: {
                 textField6.text = game.sixes()
+                button6.rollEnable = false
                 button6.enabled = false
+                uncheck()
+                button7.enabled = true
+                button7.rolls = 3
+                rollButtonsDisable()
             }
         }
 
@@ -202,21 +238,30 @@ Rectangle {
             width: 102
             height: 99
             text: qsTr("Roll !")
+            property int rolls: 3
             onClicked: {
+                rollButtonsEnable()
+                checkBoxesEnable()
                 if (!checkBox1.checked) {
-                    textField7.text = game.getDice1()
+                    textField7.text = game.getDie1()
                 }
                 if (!checkBox2.checked) {
-                    textField8.text = game.getDice2()
+                    textField8.text = game.getDie2()
                 }
                 if (!checkBox3.checked) {
-                    textField9.text = game.getDice3()
+                    textField9.text = game.getDie3()
                 }
                 if (!checkBox4.checked) {
-                    textField10.text = game.getDice4()
+                    textField10.text = game.getDie4()
                 }
                 if (!checkBox5.checked) {
-                    textField11.text = game.getDice5()
+                    textField11.text = game.getDie5()
+                }
+                rolls--
+                if (rolls == 0) {
+                    button7.enabled = false
+                    uncheck()
+                    checkBoxesDisable()
                 }
             }
         }
@@ -228,7 +273,7 @@ Rectangle {
             width: 61
             height: 64
             readOnly: true
-            placeholderText: qsTr("Dice 1")
+            placeholderText: qsTr("Die 1")
         }
 
         TextField {
@@ -238,7 +283,7 @@ Rectangle {
             width: 61
             height: 64
             readOnly: true
-            placeholderText: qsTr("Dice 2")
+            placeholderText: qsTr("Die 2")
         }
 
         TextField {
@@ -248,7 +293,7 @@ Rectangle {
             width: 61
             height: 64
             readOnly: true
-            placeholderText: qsTr("Dice 3")
+            placeholderText: qsTr("Die 3")
         }
 
         TextField {
@@ -258,7 +303,7 @@ Rectangle {
             width: 61
             height: 64
             readOnly: true
-            placeholderText: qsTr("Dice 4")
+            placeholderText: qsTr("Die 4")
         }
 
         TextField {
@@ -268,7 +313,7 @@ Rectangle {
             width: 61
             height: 64
             readOnly: true
-            placeholderText: qsTr("Dice 5")
+            placeholderText: qsTr("Die 5")
         }
 
         CheckBox {
@@ -322,9 +367,15 @@ Rectangle {
             y: 72
             width: 125
             text: qsTr("Three of a kind")
+            property bool rollEnable: true
             onClicked: {
                 textFieldThreeOfAKind.text = game.threeOfAKind()
+                button8.rollEnable = false
                 button8.enabled = false
+                uncheck()
+                button7.enabled = true
+                button7.rolls = 3
+                rollButtonsDisable()
             }
         }
 
@@ -334,9 +385,15 @@ Rectangle {
             y: 112
             width: 125
             text: qsTr("Four of a kind")
+            property bool rollEnable: true
             onClicked: {
                 textFieldFourOfAKind.text = game.fourOfAKind()
+                button10.rollEnable = false
                 button10.enabled = false
+                uncheck()
+                button7.enabled = true
+                button7.rolls = 3
+                rollButtonsDisable()
             }
         }
 
@@ -347,9 +404,15 @@ Rectangle {
             width: 125
             height: 27
             text: qsTr("Full house")
+            property bool rollEnable: true
             onClicked: {
                 textFieldFullHouse.text = game.fullHouse()
+                button11.rollEnable = false
                 button11.enabled = false
+                uncheck()
+                button7.enabled = true
+                button7.rolls = 3
+                rollButtonsDisable()
             }
         }
 
@@ -359,9 +422,15 @@ Rectangle {
             y: 194
             width: 125
             text: qsTr("Small sequence")
+            property bool rollEnable: true
             onClicked: {
                 textFieldSmallSequence.text = game.smallSequence()
+                button12.rollEnable = false
                 button12.enabled = false
+                uncheck()
+                button7.enabled = true
+                button7.rolls = 3
+                rollButtonsDisable()
             }
         }
 
@@ -370,9 +439,15 @@ Rectangle {
             x: 245
             y: 232
             text: qsTr("Large sequence")
+            property bool rollEnable: true
             onClicked: {
                 textFieldLargeSequence.text = game.largeSequence()
+                button13.rollEnable = false
                 button13.enabled = false
+                uncheck()
+                button7.enabled = true
+                button7.rolls = 3
+                rollButtonsDisable()
             }
         }
 
@@ -382,9 +457,15 @@ Rectangle {
             y: 270
             width: 125
             text: qsTr("Chance")
+            property bool rollEnable: true
             onClicked: {
                 textFieldChance.text = game.chance()
+                button14.rollEnable = false
                 button14.enabled = false
+                uncheck()
+                button7.enabled = true
+                button7.rolls = 3
+                rollButtonsDisable()
             }
         }
 
@@ -394,9 +475,15 @@ Rectangle {
             y: 308
             width: 125
             text: qsTr("GENERALA")
+            property bool rollEnable: true
             onClicked: {
                 textFieldGenerala.text = game.generala()
+                button15.rollEnable = false
                 button15.enabled = false
+                uncheck()
+                button7.enabled = true
+                button7.rolls = 3
+                rollButtonsDisable()
             }
         }
 
@@ -490,7 +577,8 @@ Rectangle {
             height: 40
             text: qsTr("Check")
             onClicked: {
-                newGame()
+                textFieldResult.text = game.check()
+                uncheck()
             }
         }
 
@@ -504,6 +592,64 @@ Rectangle {
             placeholderText: qsTr("0")
         }
 
+        function checkBoxesDisable() {
+            checkBox1.enabled = false
+            checkBox2.enabled = false
+            checkBox3.enabled = false
+            checkBox4.enabled = false
+            checkBox5.enabled = false
+        }
+
+        function checkBoxesEnable() {
+            checkBox1.enabled = true
+            checkBox2.enabled = true
+            checkBox3.enabled = true
+            checkBox4.enabled = true
+            checkBox5.enabled = true
+        }
+
+        function rollButtonsDisable() {
+            button1.enabled = false
+            button2.enabled = false
+            button3.enabled = false
+            button4.enabled = false
+            button5.enabled = false
+            button6.enabled = false
+            button8.enabled = false
+            button10.enabled = false
+            button11.enabled = false
+            button12.enabled = false
+            button13.enabled = false
+            button14.enabled = false
+            button15.enabled = false
+
+        }
+
+        function rollButtonsEnable() {
+            button1.enabled = button1.rollEnable
+            button2.enabled = button2.rollEnable
+            button3.enabled = button3.rollEnable
+            button4.enabled = button4.rollEnable
+            button5.enabled = button5.rollEnable
+            button6.enabled = button6.rollEnable
+            button8.enabled = button8.rollEnable
+            button10.enabled = button10.rollEnable
+            button11.enabled = button11.rollEnable
+            button12.enabled = button12.rollEnable
+            button13.enabled = button13.rollEnable
+            button14.enabled = button14.rollEnable
+            button15.enabled = button15.rollEnable
+        }
+
+        function uncheck() {
+            checkBox1.checked = false
+            checkBox2.checked = false
+            checkBox3.checked = false
+            checkBox4.checked = false
+            checkBox5.checked = false
+        }
+
+
         function newGame() {
             textField1.text = "-30"
             textField2.text = "-30"
@@ -513,11 +659,11 @@ Rectangle {
             textField6.text = "-30"
 
             // Dices
-            textField7.text = "Dice 1"
-            textField8.text = "Dice 2"
-            textField9.text = "Dice 3"
-            textField10.text = "Dice 4"
-            textField11.text = "Dice 5"
+            textField7.text = "Die 1"
+            textField8.text = "Die 2"
+            textField9.text = "Die 3"
+            textField10.text = "Die 4"
+            textField11.text = "Die 5"
 
             // others
             textFieldThreeOfAKind.text = "0"
@@ -553,5 +699,24 @@ Rectangle {
             button14.enabled = true
             button15.enabled = true
             button16.enabled = true
+
+            // rollEnable = true
+            button1.rollEnable = true
+            button2.rollEnable = true
+            button3.rollEnable = true
+            button4.rollEnable = true
+            button5.rollEnable = true
+            button6.rollEnable = true
+            button8.rollEnable = true
+            button10.rollEnable = true
+            button11.rollEnable = true
+            button12.rollEnable = true
+            button13.rollEnable = true
+            button14.rollEnable = true
+            button15.rollEnable = true
+
+            button7.rolls = 3
+
+            game.newGame()
         }
 }
